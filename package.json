@@ -53,5 +53,9 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.4"
-  }
+  },
+  "resolutions": {
+  "react-alert/react": "^18.3.1"
+}
+
 }
