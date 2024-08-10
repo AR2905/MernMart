@@ -27,13 +27,9 @@ import AdminProductDetailsPage from "./Pages/AdminProductDetailsPage";
 import ProductForm from "./ADMIN/Component/ProductForm";
 import AdminProductFormPage from "./Pages/AdminProductFormPage";
 import AdminOrdersPage from "./Pages/AdminOrdersPage";
-import { positions, Provider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import StripeCheckout from './Pages/StripeCheckout';
-const options = {
-  timeout: 5000,
-  position: positions.BOTTOM_LEFT,
-};
 
 const router = createBrowserRouter([
   {
@@ -197,15 +193,26 @@ const App = () => {
   return (
     <>
       <div className="App">
-      {userChecked && (
-          <Provider template={AlertTemplate} {...options}>
+        {userChecked && (
+          <>
             <RouterProvider router={router} />
-          </Provider>
+            <ToastContainer 
+              position="bottom-left" 
+              autoClose={5000} 
+              hideProgressBar={false} 
+              newestOnTop={false} 
+              closeOnClick 
+              rtl={false} 
+              pauseOnFocusLoss 
+              draggable 
+              pauseOnHover 
+            />
+          </>
         )}
-        {/* Link must be inside the Provider */}
       </div>
     </>
   );
+  
 };
 
 export default App;

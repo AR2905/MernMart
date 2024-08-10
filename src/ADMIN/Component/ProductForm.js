@@ -4,7 +4,8 @@ import { clearSelectedProduct, createProductAsync, fetchProductByIdAsync, select
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from '../../common/Modal';
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
+import { toast } from 'react-toastify';
 
 const ProductForm = () => {
   
@@ -38,7 +39,6 @@ const ProductForm = () => {
   }, [params.id, dispatch]);
 
   
-  const alert = useAlert();
   useEffect(() => {
     if (selectedProduct && params.id) {
       setValue('title', selectedProduct.title);
@@ -83,11 +83,12 @@ const ProductForm = () => {
           product.id = params.id;
           product.rating = selectedProduct.rating || 0;
           dispatch(updateProductAsync(product));
-          alert.success('Product Updated Successfully')
+          toast.success('Product Updated Successfully');
+  
           reset();
         } else {
           dispatch(createProductAsync(product));
-          alert.success('Product Created')
+          toast.success('Product Created')
 
           reset();
           //TODO:  on product successfully added clear fields and show a message

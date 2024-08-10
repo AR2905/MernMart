@@ -8,7 +8,9 @@ import { fetchProductByIdAsync, selectProductListStatus, selectedProductById } f
 import { useParams } from "react-router-dom";
 import { addToCartAsync, selectItems } from "../../CART/CartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Grid } from "react-loader-spinner";
 
 const colors = [
@@ -46,7 +48,7 @@ export default function ProductDetails() {
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const items = useSelector(selectItems)
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
   const status = useSelector(selectProductListStatus);
   const params = useParams();
   useEffect(() => {
@@ -64,9 +66,13 @@ export default function ProductDetails() {
       };
       dispatch(addToCartAsync(newItem));
       // TODO: it will be based on server response of backend
-      alert.success('Item added to Cart');
+      // alert.success('Item added to Cart');
+      toast.success('Item added to cart!');
+
     } else {
-      alert.error('Item Already added');
+      // alert.error('Item Already added');
+      toast.error('Item Already added');
+
     }
   };
 
