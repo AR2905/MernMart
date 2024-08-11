@@ -1,7 +1,7 @@
 
 export function fetchProductByID(id) {
   return new Promise(async (resolve) => {
-    const response = await fetch("/products/" + id);
+    const response = await fetch("https://mern-mart-backend.vercel.app/products/" + id);
     const data = await response.json();
     resolve({ data });
   });
@@ -9,7 +9,7 @@ export function fetchProductByID(id) {
 
 export function createProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch('/products/', {
+    const response = await fetch('https://mern-mart-backend.vercel.app/products/', {
       method: 'POST',
       body: JSON.stringify(product),
       headers: { 'content-type': 'application/json' },
@@ -22,7 +22,7 @@ export function createProduct(product) {
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      '/products/' + update.id,
+      'https://mern-mart-backend.vercel.app/products/' + update.id,
       {
         method: 'PATCH',
         body: JSON.stringify(update),
@@ -79,7 +79,7 @@ export function fetchProductsByFilters(filter, sort, pagination ,admin) {
 
 export function fetchCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch("/categories");
+    const response = await fetch("https://mern-mart-backend.vercel.app/categories");
     const data = await response.json();
     resolve({ data });
   });
@@ -87,7 +87,7 @@ export function fetchCategories() {
 
 export function fetchBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch("/brands");
+    const response = await fetch("https://mern-mart-backend.vercel.app/brands");
     const data = await response.json();
     resolve({ data });
   });
