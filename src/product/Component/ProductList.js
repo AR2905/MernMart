@@ -47,6 +47,12 @@ export default function ProductList() {
   const totalItems = useSelector(selectTotalItems);
 
 
+console.log("Your products : ", products)
+console.log("Your status : ", status)
+console.log("Your brands : ", brands)
+console.log("Your categories : ", categories)
+console.log("Your totalItems : ", totalItems)
+
   const filters = [
     {
       id: 'category',

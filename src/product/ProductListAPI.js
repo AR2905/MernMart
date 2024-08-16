@@ -1,7 +1,7 @@
 
 export function fetchProductByID(id) {
   return new Promise(async (resolve) => {
-    const response = await fetch("https://mern-mart-backend.vercel.app/products/" + id);
+    const response = await fetch("/products/" + id);
     const data = await response.json();
     resolve({ data });
   });
@@ -9,7 +9,7 @@ export function fetchProductByID(id) {
 
 export function createProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://mern-mart-backend.vercel.app/products/', {
+    const response = await fetch('/products/', {
       method: 'POST',
       body: JSON.stringify(product),
       headers: { 'content-type': 'application/json' },
@@ -22,7 +22,7 @@ export function createProduct(product) {
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      'https://mern-mart-backend.vercel.app/products/' + update.id,
+      '/products/' + update.id,
       {
         method: 'PATCH',
         body: JSON.stringify(update),
@@ -66,7 +66,7 @@ export function fetchProductsByFilters(filter, sort, pagination ,admin) {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
     const response = await fetch(
-      "https://mern-mart-backend.vercel.app/products?"+queryString
+      "/products?"+queryString
     );
 
     const data = await response.json();
@@ -79,7 +79,7 @@ export function fetchProductsByFilters(filter, sort, pagination ,admin) {
 
 export function fetchCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch("https://mern-mart-backend.vercel.app/categories");
+    const response = await fetch("/categories");
     const data = await response.json();
     resolve({ data });
   });
@@ -87,7 +87,7 @@ export function fetchCategories() {
 
 export function fetchBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch("https://mern-mart-backend.vercel.app/brands");
+    const response = await fetch("/brands");
     const data = await response.json();
     resolve({ data });
   });
