@@ -36,12 +36,18 @@ export const checkAuthAsync = createAsyncThunk(
   async () => {
     try {
       const response = await checkAuth();
-      return response.data;
+      if (response.headers['content-type'].includes('application/json')) {
+        return response.data;
+      } else {
+        throw new Error('Unexpected response format');
+      }
     } catch (error) {
-      console.log(error);
+      console.log('Error during authentication check:', error);
+      throw error; // Re-throw the error to ensure the thunk fails properly
     }
   }
 );
+
 
 export const signOutAsync = createAsyncThunk(
   'user/signOut',
