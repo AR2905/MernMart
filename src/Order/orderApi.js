@@ -4,7 +4,7 @@ export function createOrder(order) {
     const response = await fetch('https://mern-mart-backend.vercel.app/orders', {
       method: 'POST',
       body: JSON.stringify(order),
-      headers: { 'content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();
     

@@ -3,7 +3,7 @@ export function addToCart(item) {
     const response = await fetch('https://mern-mart-backend.vercel.app/cart', {
       method: 'POST',
       body: JSON.stringify(item),
-      headers: { 'content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();
     // TODO: on server it will only return some info of user (not password)
@@ -26,7 +26,7 @@ export function updateCart(update) {
     const response = await fetch('https://mern-mart-backend.vercel.app/cart/' + update.id, {
       method: 'PATCH',
       body: JSON.stringify(update),
-      headers: { 'content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();
     // TODO: on server it will only return some info of user (not password)
@@ -38,7 +38,7 @@ export function deleteItemFromCart(itemId) {
   return new Promise(async (resolve) => {
     const response = await fetch('https://mern-mart-backend.vercel.app/cart/' + itemId, {
       method: 'DELETE',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();
     // TODO: on server it will only return some info of user (not password)

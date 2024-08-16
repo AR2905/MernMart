@@ -12,7 +12,7 @@ export function createProduct(product) {
     const response = await fetch('https://mern-mart-backend.vercel.app/products/', {
       method: 'POST',
       body: JSON.stringify(product),
-      headers: { 'content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();
     resolve({ data });
@@ -26,7 +26,7 @@ export function updateProduct(update) {
       {
         method: 'PATCH',
         body: JSON.stringify(update),
-        headers: { 'content-type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
       }
     );
     const data = await response.json();

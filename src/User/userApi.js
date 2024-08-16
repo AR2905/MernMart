@@ -22,7 +22,7 @@ export function updateUser(update) {
     const response = await fetch('https://mern-mart-backend.vercel.app/users/'+update.id, {
       method: 'PATCH',
       body: JSON.stringify(update),
-      headers: { 'content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();
     // TODO: on server it will only return some info of user (not password)

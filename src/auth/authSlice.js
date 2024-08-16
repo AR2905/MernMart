@@ -36,7 +36,7 @@ export const checkAuthAsync = createAsyncThunk(
   async () => {
     try {
       const response = await checkAuth();
-      if (response.headers['content-type'].includes('application/json')) {
+      if (response.headers['Content-Type'].includes('application/json')) {
         return response.data;
       } else {
         throw new Error('Unexpected response format');
